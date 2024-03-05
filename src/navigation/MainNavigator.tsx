@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {TMainStackParamList} from './types';
 import {Icon} from '../common/components';
 import {useNavigation} from '@react-navigation/native';
-import {Main, Search} from '../features/news/views';
+import {Main, NewsDetails} from '../features/news/views';
 
 const Stack = createNativeStackNavigator<TMainStackParamList>();
 
@@ -42,10 +42,10 @@ export const MainNavigator = () => {
           })}
         />
         <Stack.Screen
-          name="SearchNews"
-          component={Search}
+          name="NewsDetail"
+          component={NewsDetails}
           options={() => ({
-            headerTitle: 'Search News',
+            headerTitle: 'Detail',
           })}
         />
       </Stack.Group>

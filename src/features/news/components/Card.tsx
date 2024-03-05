@@ -1,12 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {
-  FlexBetween,
-  FlexColumn,
-  FlexStart,
-  Text,
-} from '../../../common/components';
-import dayjs from 'dayjs';
+import {FlexBetween, FlexColumn, Text} from '../../../common/components';
 import FastImage from 'react-native-fast-image';
 import {IArticle} from '../types';
 
@@ -26,29 +20,13 @@ export const Card = ({article}: ICardProps) => {
           style={styles.title}>
           {article.title}
         </Text>
-        <FlexStart>
-          <FastImage
-            testID="card-image"
-            source={{
-              uri: article.image,
-            }}
-            style={styles.authorImage}
-          />
-          <FlexColumn style={styles.authorInfoContainer}>
-            <Text testID="card-source-name" type="BODY4" numberOfLines={1} bold>
-              {article.source.name}
-            </Text>
-            <Text testID="card-date" style={styles.date}>
-              {dayjs(article.publishedAt).format('MMM. DD, YYYY')}
-            </Text>
-          </FlexColumn>
-        </FlexStart>
+        <Text testID="card-price">{article.price}</Text>
       </FlexColumn>
       <View style={styles.imageContainer}>
         <FastImage
           testID="card-source-image"
           source={{
-            uri: article.image,
+            uri: article.images[0].thumbnail,
           }}
           style={styles.image}
         />

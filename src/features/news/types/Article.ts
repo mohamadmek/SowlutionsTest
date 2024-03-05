@@ -1,12 +1,24 @@
+export interface IArticlesResponse {
+  total: number;
+  current_count: number;
+  limit: number;
+  offset: number;
+  items: Array<IArticle>;
+}
+
 export interface IArticle {
+  price: string;
   title: string;
-  description: string;
-  content: string;
-  url: string;
-  image: string;
-  publishedAt: string;
-  source: {
-    name: string;
-    url: string;
-  };
+  images: Array<IImage>;
+  categories: Array<ICategory>;
+  quantity: number;
+}
+
+export interface ICategory {
+  title: string;
+}
+
+export interface IImage {
+  thumbnail: string;
+  large: string;
 }

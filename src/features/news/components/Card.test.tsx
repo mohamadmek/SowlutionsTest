@@ -5,24 +5,22 @@ import {expectTextToBePresent} from '../../../common/components';
 
 const baseProps: ComponentProps<typeof Card> = {
   article: {
-    title: 'Title',
-    image: 'https://www.google.com',
-    url: 'https://www.google.com',
-    content: 'Content',
-    description: 'Description',
-    source: {
-      name: 'Source',
-      url: 'https://www.google.com',
-    },
-    publishedAt: '2024-02-24T00:00:00Z',
+    price: '123',
+    title: 'title',
+    images: [
+      {
+        thumbnail: 'thumbnail',
+        large: 'large',
+      },
+    ],
+
+    categories: [{title: 'category'}],
+    quantity: 123,
   },
 };
 
 it('should render correct values', () => {
   render(<Card {...baseProps} />);
   expectTextToBePresent('card-title', {text: baseProps.article.title});
-  expectTextToBePresent('card-source-name', {
-    text: baseProps.article.source.name,
-  });
-  expectTextToBePresent('card-date', {text: 'Feb. 24, 2024'});
+  expectTextToBePresent('card-price', {text: baseProps.article.price});
 });
